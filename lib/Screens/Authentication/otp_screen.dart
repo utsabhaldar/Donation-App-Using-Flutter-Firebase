@@ -49,20 +49,28 @@ class _OTPScreenState extends State<OTPScreen> {
           const SizedBox(
             height: 10,
           ),
-          RichText(
-            text: TextSpan(
-                text: 'We have sent a conformation code to your number',
-                style: TextStyle(color: Colors.grey),
-                children: [
-                  TextSpan(
-                    text: widget.number,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                      fontSize: 12,
+          Expanded(
+            child: RichText(
+              text: TextSpan(
+                  text: 'We have sent a conformation code to your number',
+                  style: TextStyle(color: Colors.grey, fontSize: 12),
+                  children: [
+                    TextSpan(
+                      text: widget.number,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                        fontSize: 12,
+                      ),
                     ),
-                  ),
-                ]),
+                  ]),
+            ),
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Icon(Icons.edit),
           ),
           Row(
             children: [

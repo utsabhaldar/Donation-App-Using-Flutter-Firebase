@@ -16,29 +16,35 @@ class _PhoneNumberAuthState extends State<PhoneNumberAuth> {
   var countryCodeController = TextEditingController(text: '+91');
   var phoneNumberController = TextEditingController();
 
-  showAlertDialog(BuildContext context) {
-    AlertDialog alert = AlertDialog(
-      content: Row(
-        children: const [
-          CircularProgressIndicator(
-            valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
-          ),
-          SizedBox(
-            width: 15,
-          ),
-          Text('please wait'),
-        ],
-      ),
-    );
-    showDialog(
-        barrierDismissible: false,
-        context: context,
-        builder: (BuildContext context) {
-          return alert;
-        });
-  }
+  // showAlertDialog(BuildContext context) {
+  //   AlertDialog alert = AlertDialog(
+  //     content: Row(
+  //       children: const [
+  //         CircularProgressIndicator(
+  //           valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+  //         ),
+  //         SizedBox(
+  //           width: 15,
+  //         ),
+  //         Text('please wait'),
+  //       ],
+  //     ),
+  //   );
+  //   showDialog(
+  //       barrierDismissible: false,
+  //       context: context,
+  //       builder: (BuildContext context) {
+  //         return alert;
+  //       });
+  // }
 
-  final PhoneAuthService _service = PhoneAuthService();
+  PhoneAuthService _service = PhoneAuthService();
+
+  @override
+  void dispose() {
+    // showAlertDialog(context);
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -137,7 +143,7 @@ class _PhoneNumberAuthState extends State<PhoneNumberAuth> {
               onPressed: () {
                 String number =
                     '${countryCodeController.text}${phoneNumberController.text}';
-                showAlertDialog(context);
+                // showAlertDialog(context);
 
                 _service.verifyPhoneNumber(context, number);
               },
