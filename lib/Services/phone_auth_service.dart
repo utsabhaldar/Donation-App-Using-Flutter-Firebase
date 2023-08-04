@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:share_sphere_app/Screens/Authentication/otp_screen.dart';
 
 class PhoneAuthService {
-  FirebaseAuth auth = FirebaseAuth.instance;
+  // FirebaseAuth auth = FirebaseAuth.instance;
 
   Future<void> verifyPhoneNumber(BuildContext context, number) async {
     final PhoneVerificationCompleted verificationCompleted =
         (PhoneAuthCredential credential) async {
-      await auth.signInWithCredential(credential);
+      // await auth.signInWithCredential(credential);
     };
 
     final PhoneVerificationFailed verificationFailed =
@@ -30,18 +30,18 @@ class PhoneAuthService {
       );
     };
 
-    try {
-      auth.verifyPhoneNumber(
-          phoneNumber: number,
-          verificationCompleted: verificationCompleted,
-          verificationFailed: verificationFailed,
-          codeSent: codeSent,
-          timeout: const Duration(seconds: 60),
-          codeAutoRetrievalTimeout: (String verificationId) {
-            print(verificationId);
-          });
-    } catch (e) {
-      log('Error ${e.toString()}');
-    }
+    // try {
+    //   auth.verifyPhoneNumber(
+    //       phoneNumber: number,
+    //       verificationCompleted: verificationCompleted,
+    //       verificationFailed: verificationFailed,
+    //       codeSent: codeSent,
+    //       timeout: const Duration(seconds: 60),
+    //       codeAutoRetrievalTimeout: (String verificationId) {
+    //         print(verificationId);
+    //       });
+    // } catch (e) {
+    //   log('Error ${e.toString()}');
+    // }
   }
 }
