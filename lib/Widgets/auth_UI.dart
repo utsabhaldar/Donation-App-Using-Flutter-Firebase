@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
 import 'package:share_sphere_app/Screens/Authentication/phone_number.dart';
+import 'package:share_sphere_app/Screens/main_page.dart';
 
 class AuthUI extends StatelessWidget {
   const AuthUI({super.key});
@@ -21,7 +22,7 @@ class AuthUI extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const PhoneNumberAuth()));
+                          builder: (context) => const MainActivity()));
                 },
                 child: Row(
                   children: const [
@@ -44,7 +45,12 @@ class AuthUI extends StatelessWidget {
             child: ElevatedButton(
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.white)),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const MainActivity()));
+                },
                 child: Row(
                   children: const [
                     Icon(
@@ -71,11 +77,21 @@ class AuthUI extends StatelessWidget {
           ),
           SignInButton(
             Buttons.Google,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const MainActivity()));
+            },
           ),
           SignInButton(
             Buttons.Facebook,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const MainActivity()));
+            },
           ),
         ],
       ),
